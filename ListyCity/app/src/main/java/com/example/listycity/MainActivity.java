@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> dataList;
 
     int selectedPos = -1;         // track the selected item
-    String selectedCity = null;   // optional: track the selected city string
+    String selectedCity = null;   
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,15 +68,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (selectedPos >= 0 && selectedPos < dataList.size()) {
-                    // removing by index is safer in case there are duplicate names
+                    // in case there are duplicate names
                     dataList.remove(selectedPos);
                     cityAdapter.notifyDataSetChanged(); // refresh the list UI
-                    // reset selection so we don't accidentally delete again without a tap
+                    // reset selection so don't accidentally delete  without tap
                     selectedPos = -1;
                     selectedCity = null;
                     deleteButton.setEnabled(false);
                 } else {
-                    // lab note: nothing selected — ignore click
+                    // nothing selected — ignore click
                 }
             }
         });
